@@ -41,6 +41,16 @@ const Add = ({token}) => {
     }})
     if (response.data.success) {
       toast.success(response.data.message)
+      setName("");
+      setDescription("");
+      setPrice("");
+      setSizes("");
+      setCategory("");
+      setSubcategory("");
+      setImage1("");
+      setImage2("");
+      setImage3("");
+      setImage4("");
       navigate("/list")
     }
     

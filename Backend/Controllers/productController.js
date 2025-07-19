@@ -63,8 +63,8 @@ try {
   const removeProduct = async (req,res) => {
     try{
 
-      const {productId} = req.body
-      await productModel.findByIdAndDelete(productId)
+      
+      await productModel.findByIdAndDelete(req.body.id);
       
       res.status(200).json({
         success:true,
