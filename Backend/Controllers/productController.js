@@ -4,7 +4,7 @@ import productModel from "../Model/ProductModel.js"
 const addProduct = async (req,res) => {
 
     try {
-        const { name, description,price, category,subcategory,sizes,bestseller} = req.body
+        const { name, description,price, category,subcategory,sizes,bestSeller} = req.body
         const image1 = req.files.image1 && req.files.image1[0] 
         const image2 = req.files.image2 && req.files.image2[0]
         const image3 = req.files.image3 && req.files.image3[0]
@@ -27,7 +27,7 @@ const addProduct = async (req,res) => {
     category,
     subcategory,
     price:Number(price),
-    bestseller : bestseller === "true" ? true : false,
+    bestSeller : bestSeller === "true" ? true : false,
     image : imageUrl,
     sizes:JSON.parse(sizes),
     date : Date.now()
@@ -65,7 +65,6 @@ try {
 
       
       await productModel.findByIdAndDelete(req.body.id);
-      
       res.status(200).json({
         success:true,
         message: "delete product successfully in database 💖"

@@ -1,13 +1,19 @@
-import { createContext, useState } from "react";
-import { products } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
+import axios from "axios"
+import { toast } from "react-toastify";
+
+
+ const backendURL =import.meta.env.VITE_BACKEND_URL;
 
  export const ShopContext=createContext();
  const ShopContextProvider=(props)=>{
     const currency='$';
     const [search,setSearch]=useState('')
+    const [Products, setProducts] = useState([])
     const [showSearch,setShowSearch]=useState(false)
     const delivery_fee=10;
     const [CartItem, setCartItem] = useState({})
+    
 
     const AddToCart = (itemId, size)=> {
               let cartData = structuredClone(CartItem);
@@ -36,13 +42,33 @@ import { products } from "../assets/assets";
         }
         }
         return totalCount
+     }
+ const fetchProducts = async()=>{
+    try {
+        const response = await axios.get(backendURL + "/api/product/list")
+        if (response.data.success) {
+        setProducts(response.data.products)     
+        } else {
+            toast.error(response.data.message) 
+               }
+        
+    } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+        
+        
     }
+ }
+ useEffect(()=>{
+fetchProducts()
+ },[])
+ 
     const value={
-        products,
+        Products,
         currency,
         delivery_fee,
         search,setSearch,showSearch,setShowSearch,
-        AddToCart,GetCartData
+        AddToCart,GetCartData,backendURL
     }
     return(
         <ShopContext.Provider value={value}>

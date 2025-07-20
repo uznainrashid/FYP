@@ -4,16 +4,16 @@ import Title  from './Title'
 import ProductItem from './ProductItem'
 
 const RelatedProducts = ({category,subCategory}) => {
-    const { products }=useContext(ShopContext)
+    const { Products }=useContext(ShopContext)
     const [related,setRelated]=useState([])
     useEffect(()=>{
-        if(products.length >0){
-            let productsCopy=products.slice()
+        if(Products.length >0){
+            let productsCopy=Products.slice()
             productsCopy = productsCopy.filter((item)=> category === item.category)
             productsCopy = productsCopy.filter((item)=> subCategory === item.subCategory)
             setRelated(productsCopy.slice(0,5))
         }
-    },[products])
+    },[Products])
   return (
     <div className='my-24'>
         <div className='text-center text-3xl py-6'>

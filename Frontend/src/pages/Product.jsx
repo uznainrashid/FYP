@@ -6,12 +6,12 @@ import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
   const {productId}=useParams();
-  const {products,currency , AddToCart}=useContext(ShopContext)
+  const {Products,currency , AddToCart}=useContext(ShopContext)
   const [productData,setProductData]=useState(false)
   const [image,setImage]=useState('')
   const [size,setSize]=useState('')
-  const fetchProductData=async()=>{
-    products.map((item)=>{
+  const fetchProductData= async () => {
+    Products.map((item)=>{
       if(item._id === productId){
         setProductData(item)
         setImage(item.image[0])
@@ -22,7 +22,7 @@ const Product = () => {
   }
   useEffect(()=>{
     fetchProductData()
-  },[productId])
+  },[productId,Products])
   return productData ? (
     <div className='border-t pt-10 transition-opacity ease-in duration-500 opacity-100'>
       {/* product data */}
@@ -32,8 +32,8 @@ const Product = () => {
           <div className='flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-between  sm:w-[18.7%] w-full'>
 
             {
-              productData.image.map((item,index)=>(
-                <img src={item} onClick={()=>setImage(item)} className='w-[24%] sm:w-full sm:mb-1  flex-shrink-0 cursor-pointer' alt="" />
+              productData.image.map((item)=>(
+                <img  src={item} onClick={()=>setImage(item)} className='w-[24%] sm:w-full sm:mb-1  flex-shrink-0 cursor-pointer' alt="" />
 
               ))
             }

@@ -18,7 +18,7 @@ const Add = ({token}) => {
  const [category, setCategory] = useState('Men')
  const [subcategory, setSubcategory] = useState('Topwear')
  const [sizes, setSizes] = useState([])
- const [bestseller, setBestseller] = useState(false)
+ const [bestSeller, setBestseller] = useState(false)
  
 
  const onSubmitHandler = async(e)=>{
@@ -30,7 +30,7 @@ const Add = ({token}) => {
     formdata.append("price", price)
     formdata.append("category", category)
     formdata.append("subcategory", subcategory)
-    formdata.append("bestseller", bestseller)
+    formdata.append("bestseller", bestSeller)
     formdata.append("sizes", JSON.stringify(sizes))
     image1 && formdata.append("image1", image1)
     image2 &&formdata.append("image2", image2)
@@ -129,7 +129,7 @@ const Add = ({token}) => {
        </div>
       </div>
       <div className='flex mt-2 gap-1 items-center'>
-        <input onChange={()=> setBestseller(prev=> !prev)} checked={bestseller} className='w-5 cursor-pointer ' type="checkbox"  id="bestseller" />
+        <input onChange={()=> setBestseller(prev=> !prev)} checked={bestSeller} className='w-5 cursor-pointer ' type="checkbox"  id="bestSeller" />
         <label className='cursor-pointer' htmlFor="bestseller">Add To BestSeller</label>
       </div>
       <button className='w-28 bg-black px-5 py-2 text-white rounded-md cursor-pointer' type='submit'>ADD</button>
