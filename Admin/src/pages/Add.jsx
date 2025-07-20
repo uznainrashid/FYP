@@ -41,16 +41,7 @@ const Add = ({token}) => {
     }})
     if (response.data.success) {
       toast.success(response.data.message)
-      setName("");
-      setDescription("");
-      setPrice("");
-      setSizes("");
-      setCategory("");
-      setSubcategory("");
-      setImage1("");
-      setImage2("");
-      setImage3("");
-      setImage4("");
+      
       navigate("/list")
     }
     
@@ -101,7 +92,7 @@ const Add = ({token}) => {
         </div>
         <div>
           <p className='mb-2 font-medium'>Sub Category</p>
-          <select onChange={(e)=>setSubcategory(e.target.value)} className='w-full px-3 py-2'>
+          <select onChange={(e)=>setSubcategory(e.target.value)} className='w-full px-3 py-2' >
             <option value="Topwear">Topwear</option>
             <option value="Bottomwear">Bottomwear</option>
             <option value="Winterwear">Winterwear</option>
