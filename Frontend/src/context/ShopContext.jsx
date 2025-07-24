@@ -59,6 +59,12 @@ import { toast } from "react-toastify";
         
     }
  }
+ const updateQuantity = async (itemId, size, quantity)=>{
+    let cartData = structuredClone(CartItem)
+    cartData[itemId][size]=quantity;
+    setCartItem(cartData);
+
+ }
  useEffect(()=>{
 fetchProducts()
  },[])
@@ -68,7 +74,7 @@ fetchProducts()
         currency,
         delivery_fee,
         search,setSearch,showSearch,setShowSearch,
-        AddToCart,GetCartData,backendURL
+        AddToCart,GetCartData,backendURL,CartItem,updateQuantity
     }
     return(
         <ShopContext.Provider value={value}>

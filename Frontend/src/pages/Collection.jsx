@@ -40,7 +40,8 @@ const Collection = () => {
       productsCopy= productsCopy.filter(item=>item.name.toLowerCase().includes(search.toLowerCase()))
     }
     if(subCategory.length > 0){
-      productsCopy=productsCopy.filter(item => subCategory.includes(item.subCategory))
+      productsCopy=productsCopy.filter(item => subCategory.includes(item.subcategory))
+      
     }
     setFilterProducts(productsCopy)
   }
@@ -83,13 +84,13 @@ const Collection = () => {
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Men'}  onChange={toggleCategory}/>Men
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Men'}  onChange={toggleCategory}/>Men
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Women'} onChange={toggleCategory} />Women
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Women'} onChange={toggleCategory} />Women
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Kids'}  onChange={toggleCategory}/>Kids
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Kids'}  onChange={toggleCategory}/>Kids
             </p>
           </div>
         </div>
@@ -98,13 +99,13 @@ const Collection = () => {
           <p className='mb-3 text-sm font-medium'>SUB-CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Topwear'}  onChange={toggleSubCategory}  />Topwear
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Topwear'}  onChange={toggleSubCategory}  />Topwear
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Bottomwear'}  onChange={toggleSubCategory} />Bottomwear
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Bottomwear'}  onChange={toggleSubCategory} />Bottomwear
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Winterwear'}  onChange={toggleSubCategory} />Winterwear
+              <input type="checkbox" className='w-3 cursor-pointer' value={'Winterwear'}  onChange={toggleSubCategory} />Winterwear
             </p>
           </div>
         </div>

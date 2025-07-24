@@ -31,17 +31,21 @@ const Navbar = () => {
         search icon and dropdown menu
          */}
       <div className="flex items-center gap-5">
+       
         <img className="w-5 cursor-pointer" src={assets.search_icon} onClick={()=>setShowSearch(true)} alt="" />
+     
         <div className="group relative">
+           <Link to="/login">
           <img
             className="w-5 cursor-pointer"
             src={assets.profile_icon}
             alt=""
           />
-          <div className="group-hover:block hidden absolute dropdown-menu top-8 right-0  shadow-lg  p-4 ">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 ">
+            </Link>
+          <div className="group-hover:block hidden absolute dropdown-menu pt-5 right-0 ">
+            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-gray-100 text-gray-500 rounded ">
               <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
+             <Link to="/orders"> <p className="cursor-pointer hover:text-black">Orders</p> </Link>
               <p className="cursor-pointer hover:text-black">Logout</p>
             </div>
           </div>

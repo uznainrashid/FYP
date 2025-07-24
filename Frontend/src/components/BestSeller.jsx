@@ -12,7 +12,6 @@ const BestSeller = () => {
         const bestProduct=Products.filter((item)=>(item.bestSeller));
         setBestSeller(bestProduct.slice(0,5))
     },[Products])
-    console.log(bestSeller);
     
 
 
