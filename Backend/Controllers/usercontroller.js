@@ -50,7 +50,7 @@ const SignupUser= async (req, res) => {
     const {name, email, password} = req.body;
     const exist  = await userModel.findOne({email})
     if (exist) {
-        return res.status(409).json({success:false, message: "Email Already exist"})  
+     res.status(409).json({success:false, message: "Email already exist please login"})  
     }
     if (!validator.isEmail(email)) {
         return res.status(403).json({success:false, message:"Please Enter your valid email"})

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Title from '../components/Title'
-// import CartTotal from '../components/CartTotal'
+import CartTotal from '../components/CartTotal'
 import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
 
@@ -38,7 +38,7 @@ const PlaceOrders = () => {
       {/* right side */}
       <div className='mt-2'>
         <div className='mt-2 min-w-80'>
-          {/* <CartTotal/> */}
+          <CartTotal/>
 
         </div>
         <div className='mt-1'>
