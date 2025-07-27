@@ -12,11 +12,11 @@ const OrderMethodRozarpay = async(req,res)=>{
 
 }
 // Admin are check The status and update
-const AdminStatus = async(req,res)=>{
+const updateStatus = async(req,res)=>{
 
 }
-// Admin all the order are receive
-const AdminOrder = async (req,res) => {
+//  all orders for Admin Panel
+const AllOrder = async (req,res) => {
     
 }
 
@@ -28,7 +28,7 @@ export {
     placeOrder,
     OrderMethodRozarpay,
     OrderMethodStripe,
-    AdminOrder,
-    AdminStatus,
+    AllOrder,
+    updateStatus,
     userOrder
 }
