@@ -3,7 +3,7 @@ import userModel from "../Model/UserModel.js"
 
 const AddToCart = async(req, res )=> {
     try {
-        const {userId, itemId, size} = req.body
+        const {userId, itemId, size} = req.body 
         const userData = await userModel.findById(userId)
         let cartData = await userData.cartData
         if (cartData[itemId]) {

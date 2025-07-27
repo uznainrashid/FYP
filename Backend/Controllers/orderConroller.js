@@ -2,6 +2,7 @@
 // API FOR COD
 const placeOrder = async(req,res)=>{
 
+
 }
 // API for StripeMethod
 const OrderMethodStripe = async(req,res)=>{
@@ -15,13 +16,16 @@ const OrderMethodRozarpay = async(req,res)=>{
 const updateStatus = async(req,res)=>{
 
 }
-//  all orders for Admin Panel
+//  all orders Data for Admin Panel
 const AllOrder = async (req,res) => {
     
 }
 
 // All the order are frontend
 const userOrder = async(req,res)=>{
+    res.json({
+        message:"Api is working"
+    })
 
 }
 export {
