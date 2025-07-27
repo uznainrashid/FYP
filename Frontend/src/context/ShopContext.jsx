@@ -18,7 +18,7 @@ import {useNavigate} from "react-router-dom"
     const [token, setToken] = useState("")
     
 
-    const AddToCart = (itemId, size)=> {
+    const AddToCart = async (itemId, size)=> {
               let cartData = structuredClone(CartItem);
               if (cartData[itemId]) {
                 if (cartData[itemId][size]) {
@@ -34,6 +34,16 @@ import {useNavigate} from "react-router-dom"
 
             }
             setCartItem(cartData)
+            if (token) {
+                try {
+                await axios.post(backendURL+ "/api/cart/add" , {itemId,size}, {headers: {token}} )
+                } catch (error) {
+                    console.log(error);
+                    toast.error(error.message);
+                    
+                }
+                
+            }
     }
     const GetCartData = ()=>{
         let totalCount = 0;
@@ -83,6 +93,32 @@ const getCartAmount = ()=>{
     let cartData = structuredClone(CartItem)
     cartData[itemId][size]=quantity;
     setCartItem(cartData);
+     if (token) {
+                try {
+                const response =  await  axios.post(backendURL+ "/api/cart/update" , {itemId,size,quantity}, {headers: {token}} )
+                if (response.data.success) {
+                    toast.success(response.data.message)
+                    
+                }
+                } catch (error) {
+                    console.log(error);
+                    toast.error(error.message);
+                    
+                }
+                
+            }
+
+ }
+ const getUserCart = async (token)=>{
+    try {
+    const response = await  axios.post(backendURL + "/api/cart/get" , {}, {headers: {token}} )
+    if (response.data.success) {
+        setCartItem(response.data.cartData)
+    }
+    } catch (error) {
+        console.log(error);
+       toast.error(error.message);
+    }
 
  }
  useEffect(()=>{
@@ -91,6 +127,7 @@ fetchProducts()
  useEffect(()=>{
 if (!token && localStorage.getItem("token")) {
     setToken(localStorage.getItem("token"))
+    getUserCart(localStorage.getItem("token"))
 }
  },[])
  
