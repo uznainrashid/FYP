@@ -19,11 +19,11 @@ orderRouter.post("/placeorderStripe", authUser ,OrderMethodStripe)
 orderRouter.post("/placeorderRozarPay", authUser ,OrderMethodRozarpay)
 
 // API FOR Admin Panel
-orderRouter.post("/allOrder",AuthAdminMiddleWare ,AllOrder)
+orderRouter.post("/list",AuthAdminMiddleWare ,AllOrder)
 orderRouter.post("/status",AuthAdminMiddleWare, updateStatus)
 
 
 // API For Frontent all order 
-orderRouter.post("/orders", userOrder)
+orderRouter.post("/userorders", userOrder)
 
 export default orderRouter

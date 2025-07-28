@@ -58,9 +58,11 @@ const PlaceOrders = () => {
     }})
     if (response.data.success) {
       toast.success(response.data.message)
-      navigate("/orders")
       setCartItem({})
+      navigate("/orders")
       
+    } else {
+      toast.error(response.data.message)
     }
         break;
 
@@ -72,6 +74,9 @@ const PlaceOrders = () => {
     
       
     } catch (error) {
+      console.log(error);
+    toast.error(error.message)
+      
       
     }
 
