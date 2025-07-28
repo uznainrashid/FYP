@@ -137,6 +137,7 @@ if (!token && localStorage.getItem("token")) {
         delivery_fee,
         search,setSearch,showSearch,setShowSearch,
         AddToCart,GetCartData,backendURL,CartItem,updateQuantity,token,setToken,navigate,getCartAmount
+        , setCartItem
     }
     return(
         <ShopContext.Provider value={value}>
